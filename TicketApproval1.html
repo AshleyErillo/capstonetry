@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ticket Review Modal</title>
+  <link rel="stylesheet" href="TicketApproval1.css" />
+</head>
+<body>
+  <!-- Ticket Review Modal -->
+  <div class="modal active" id="reviewModal">
+    <div class="modal-content">
+      <h2>Ticket Under Review for Approval</h2>
+
+      <div class="section">
+        <p><strong>Bogart Batumbakal</strong></p>
+        <p>Company ID: MA0001   Department: IT</p>
+        <p><small>Created: April 20, 2025, 07:45 AM</small></p>
+      </div>
+
+      <div class="ticket-id">TX0405</div>
+
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" value="Request for personal app installation" disabled />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" value="Software" disabled />
+        </div>
+        <div class="form-group">
+          <label>Sub-Category</label>
+          <input type="text" value="Unauthorized Apps" disabled />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea disabled>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</textarea>
+      </div>
+
+      <div class="form-group">
+        <label>File Upload</label>
+        <div class="file-box">Attached File</div>
+      </div>
+
+      <div class="button-row">
+        <button class="btn reject-btn" onclick="openRejectionModal()">Reject</button>
+        <button class="btn approve-btn" onclick="openApprovalModal()">Approve</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rejection Modal -->
+  <div class="modal" id="rejectionModal">
+    <div class="modal-content">
+      <h3>Reject Ticket</h3>
+      <div class="form-group">
+        <label>Reason for Rejection</label>
+        <textarea id="rejectionReason" placeholder="Please explain why this ticket is being rejected..."></textarea>
+      </div>
+      <div class="button-row">
+        <button class="btn secondary-btn" onclick="closeRejectionModal()">Cancel</button>
+        <button class="btn reject-btn" onclick="submitRejection()">Submit Rejection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Approval Modal -->
+  <div class="modal" id="approvalModal">
+    <div class="modal-content">
+      <h3>Approve Ticket</h3>
+      <p><strong>Are you sure you want to approve this ticket?</strong></p>
+
+      <div class="form-group">
+        <label>Priority Level</label>
+        <select id="priority">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+          <option>Critical</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Assign to Department</label>
+        <select id="department">
+          <option>IT Support</option>
+          <option>Network</option>
+          <option>Security</option>
+          <option>Development</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes (Optional)</label>
+        <textarea id="approvalNotes" placeholder="Enter any notes..."></textarea>
+      </div>
+
+      <div class="button-row">
+        <button class="btn secondary-btn" onclick="closeApprovalModal()">Cancel</button>
+        <button class="btn approve-btn" onclick="submitApproval()">Submit Approval</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="TicketApproval1.js"></script>
+</body>
+</html>
